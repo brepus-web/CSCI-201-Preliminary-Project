@@ -10,8 +10,8 @@ main:
 		li $v0, 4
 		la $a0, ID
 		syscall
-		lb $t2, $t0($a0)
-		sw $a0, $t1($t2)
+		lb $t2, 0($a0)
+		sw $a0, 8($t2)
 		addi $t0, $t0, 1
 		j loop
 	exit:
