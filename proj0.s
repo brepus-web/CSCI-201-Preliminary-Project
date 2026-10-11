@@ -7,6 +7,14 @@ main:
 	la $a0, ID
 	syscall
 
+	li $t0, 0
+	li $t1, 9
+	loop:
+		beq $t0, $t1, exit
+		li $v0, 4
+		la $a0, ID
+		syscall
+			
 	li $v0, 10
 	syscall
 
