@@ -7,14 +7,17 @@ main:
 	li $t0, 0
 	li $t1, 9
 	outerloop:
-		beq $t0, $t1, exit
+		beq $t0, $t1, exit #to print N times
 		li $t2, 0
 		innerloop:
-			beq $t2, $t1, printnext
-			add $t3, $t0, $t2 #calculates new offset each time
-			li $t4 ,9
-			div $t3,$t4
-			mfhi $t5 #wraps around to print the 0th index character
+			beq $t2, $t1, printnext #to loop through ID whose length is also 9
+			la $a1, ID
+			add $t3, $a1, $t2
+			lb $a0, 0($t3)
+			li $v0, 11
+			syscall
+			addi $t2, $t2, 1
+			j innerloop
 			
 		printnext:
 			addi $t0, $t0, 1
