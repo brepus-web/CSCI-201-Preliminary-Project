@@ -35,7 +35,7 @@ main:
 
 	backwardouterloop: #starting index : (9-1)%8 = 8
 		beq $t7, $t6, exit
-		li $t8, 0
+		li $t8, 8
 		backwardinnerloop:
 			beq $t8, $t6, printnext2
 			add $t9, $t7, $t8
