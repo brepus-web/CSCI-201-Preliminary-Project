@@ -12,8 +12,12 @@ main:
 		innerloop:
 			beq $t2, $t1, printnext #to loop through ID whose length is also 9
 			add $t3, $t0, $t2 #using $t0 to left shift printing of ID each time
+
+			#Logic to wrap around and add each string to the end
+			div $t3, $t1 #using MOD 9 to wraparound when index reaches 9
+			mfhi $t5 #Remainder : Points to each index serially and wraps around after reaching index 9
 			la $a1, ID
-			add $t4, $a1, $t3
+			add $t4, $a1, $t5
 			lb $a0, 0($t4)
 			li $v0, 11
 			syscall
@@ -21,8 +25,8 @@ main:
 			j innerloop
 			
 		printnext:
-			li $v0, 11
-			li $a0, 10
+			li $v0, 11 
+			li $a0, 10 #ASCII 10 is used to print a newline
 			syscall
 			addi $t0, $t0, 1
 			j outerloop
