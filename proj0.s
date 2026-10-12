@@ -49,13 +49,12 @@ main:
 			addi $t8,$t8,-1
 			j backwardinnerloop
 		printnext2:
-			
-			
-			
-					
-			
-			
-		
+			li $v0 ,11
+			li $a0, 10
+			syscall
+			addi t7, $t7,-1
+			j backwardouterloop
+
 	exit:
 		li $v0, 10
 		syscall
