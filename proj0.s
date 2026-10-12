@@ -11,11 +11,14 @@ main:
 		li $t2, 0
 		innerloop:
 			beq $t2, $t1, printnext
-			add $t3, $t0, $t2
+			add $t3, $t0, $t2 #calculates new offset each time
+			li $t4 ,9
+			div $t3,$t4
+			mfhi $t5 #wraps around to print the 0th index character
 			
 		printnext:
 			addi $t0, $t0, 1
-			j outerlooploop
+			j outerloop
 	exit:
 		li $v0, 10
 		syscall
