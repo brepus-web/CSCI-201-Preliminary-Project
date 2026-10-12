@@ -41,6 +41,11 @@ main:
 			add $t9, $t7, $t8
 			div $t9, $t1
 			mfhi $t0
+			la $a1, ID
+			add $t1, $a1, $t0
+			lb $a0, 0($t1)
+			li $v0 , 11
+			syscall
 			
 			
 					
