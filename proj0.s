@@ -35,10 +35,11 @@ main:
 
 	backwardouterloop: #starting index : (9-1)%8 = 8
 		beq $t7, $t6, exit
-		li $t8, 8
+		li $t8, 0
 		backwardinnerloop:
-			beq $t8, $t6, printnext2
-			add $t9, $t7, $t8
+			beq $t8, $t1, printnext2
+			sub $t9, $t7, $t8
+			add $t9, $t9, $t1
 			div $t9, $t1
 			mfhi $t0
 			la $a1, ID
@@ -46,7 +47,7 @@ main:
 			lb $a0, 0($t9)
 			li $v0 , 11
 			syscall
-			addi $t8,$t8,-1
+			addi $t8,$t8,1
 			j backwardinnerloop
 		printnext2:
 			li $v0 ,11
