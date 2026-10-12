@@ -20,6 +20,9 @@ main:
 			j innerloop
 			
 		printnext:
+			li $v0, 11
+			li $a0, 10
+			syscall
 			addi $t0, $t0, 1
 			j outerloop
 	exit:
