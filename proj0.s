@@ -11,7 +11,12 @@ main:
 		la $a0, ID
 		syscall
 		lb $t2, 0($a0)
-		sw $a0, 8($t2)
+		
+		li $t3, 0
+		shiftloop:
+			
+		
+		
 		addi $t0, $t0, 1
 		j loop
 	exit:
