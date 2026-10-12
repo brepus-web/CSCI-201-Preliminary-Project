@@ -13,11 +13,9 @@ main:
 			beq $t2, $t1, printnext
 			add $t3, $t0, $t2
 			
-		li $v0, 4
-		la $a0, ID
-		syscall
-		addi $t0, $t0, 1
-		j loop
+		printnext:
+			addi $t0, $t0, 1
+			j outerlooploop
 	exit:
 		li $v0, 10
 		syscall
