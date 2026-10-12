@@ -46,6 +46,10 @@ main:
 			lb $a0, 0($t1)
 			li $v0 , 11
 			syscall
+			addi $t8,$t8,-1
+			j backwardinnerloop
+		printnext2:
+			
 			
 			
 					
