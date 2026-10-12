@@ -39,6 +39,10 @@ main:
 		backwardinnerloop:
 			beq $t8, $t6, printnext2
 			add $t9, $t7, $t8
+			div $t9, $t1
+			mfhi $t0
+			
+			
 					
 			
 			
