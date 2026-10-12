@@ -42,8 +42,8 @@ main:
 			div $t9, $t1
 			mfhi $t0
 			la $a1, ID
-			add $t1, $a1, $t0
-			lb $a0, 0($t1)
+			add $t9, $a1, $t0
+			lb $a0, 0($t9)
 			li $v0 , 11
 			syscall
 			addi $t8,$t8,-1
@@ -52,7 +52,7 @@ main:
 			li $v0 ,11
 			li $a0, 10
 			syscall
-			addi t7, $t7,-1
+			addi $t7, $t7,-1
 			j backwardouterloop
 
 	exit:
